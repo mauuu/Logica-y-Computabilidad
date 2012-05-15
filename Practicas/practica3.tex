@@ -88,5 +88,31 @@ Caso Multiplicación: Si la multiplicación de dos números da como resultado 0 ent
 
 \item Segundo gráfico:  $\exists x \exists y \exists w \exists z ((x<y) \land \neg(x\leq y) \land (y<w) \land \neg(w\leq y) \land (w<z) \land \neg(z\leq w) \land (z < x) )$
 \end{itemize}
-\end{enumerate}
+\end{enumerate}\smallskip
+%%Doceavo Ejercicio
+\item Para demostrar que todos los elementos de este universo son distinguibles deberíamos hallar un conjunto de funciones $\phi_{\{1,2,...,n-1,n\}}\ $ donde cada una distinga un y solo un elemento.
+
+Vamos a describir con el subíndice de $\phi$ al elemento que queremos distinguir de modo que $\phi_1 \ $ distinguirá al elemento 1.\newline
+Usaremos la igualdad (=) y el menor estricto ($<$) asi que pasemos a la definición de ambos: \newline
+Igualdad: $x = y  \longleftrightarrow ((x \leq y) \land (y \leq x))$\newline
+Menor Estricto: $x < y \longleftrightarrow ((x \leq y) \land \neg(y \leq x))$
+\begin{itemize}
+\item Primer Gráfico:
+\begin{itemize}
+\item $\phi_1 = \forall x (y < x)$
+\item Idea: Para describir a 2 pienso que es el único elemento que tiene 3 sucesores (4, 5 y 6) aunque el elemento 1 también tiene 3 sucesores (tiene 5 exactamente) asi que también voy a decir que existe otro elemento que es antecesor (por el 1) o no es antecesor ni sucesor (por el 3).
+
+$\phi_2 = \exists x \exists y \exists w \exists z ((t<x) \land (t<y) \land (t<w) \land ((z<t) \lor \neg((z<t) \land (t< z))))$
+\item Idea: Similar a la anterior, el 3 es el único elemento que tiene 2 sucesores, un antecesor y cualquier otro elemento no es sucesor ni antecesor.\newline
+$\phi_3  = \exists x,y,z ((t<x)  \land (t<y) \land (z<t)) \land \forall w(\neg(w=x) \land \neg (w=y) \land \neg (w=z) \land \neg (w=t) \rightarrow$ \newline
+$\neg((w<z) \lor (z<w))) $
+\item Idea: Es el único que tiene 2 antecesores, un sucesor y cualquier otro elemento no es antecesor ni sucesor.\newline
+$\phi_4  = \exists x,y,z ((x<t)  \land (y<t) \land (t<z)) \land \forall w(\neg(w=x) \land \neg (w=y) \land \neg (w=z) \land \neg (w=t) \rightarrow$ \newline 
+$\neg((w<z) \lor (z<w))) $
+\item Idea: Es el único elemento que tiene 3 antecesores, 1 sucesor y cualquier otro elemento no es antecesor ni sucesor.\newline
+$\phi_5 = \exists x,y,w,z ( (x<t) \land (y<t) \land (w<t) \land ((t<z) \lor \neg((z<t) \land (t< z))))$
+\item Idea: Ya sabemos que si tenemos un conjunto finito de $n+1\ $  elementos y $n\ $ elementos son distinguibles entonces todos los elementos son distinguibles (lo probamos en el ejercicio 10) igual escribimos la fórmula pues es muy sencilla.\newline
+$\phi_6 = \forall x (x<y)$
+\end{itemize}
+\end{itemize}
 \end{enumerate}
