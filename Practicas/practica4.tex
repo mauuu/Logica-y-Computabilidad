@@ -35,5 +35,38 @@ También usaremos el símbolo $\not =$ para indicar que $x \not = y \longleftright
 La idea es que en el primer gráfico hay 4 números (1,2,3,4) entre los cuales no hay una relación de orden, es decir, ninguno es menor o igual al otro y además que para cualquier otro número distinto a ellos, dicho número es mayor.\newline
 $\exists x,y,w,z,t ((x\bullet y)\land (x\bullet w) \land (x\bullet z) \land (y\bullet w) \land (y\bullet z) \land (w\bullet z)  \land (t \not = x) \land (t\not = y) \land (t\not = w) \land (t\not = z))\rightarrow$ \newline
 $\forall t( (x\leq t)\lor (y\leq t) \lor (w\leq t) \lor (z\leq t))$
-\end{enumerate}
+\end{enumerate}\smallskip
+%%Ejercicio 6
+\item Se grafican a continuación los dos ejemplos, el primero cumple mientras que el segundo no :  \newline
+
+\begin{tikzpicture}[inner sep=0mm]
+\tikzstyle{color0}=[circle,fill=white]
+\node at (1,2) (nodo1)[color0] {$\bullet_1$};
+\node at (0,1) (nodo3)[color0] {$\bullet_2$};
+\node at (2,1) (nodo2)[color0] {$\bullet_3$};
+\node at (1,0) (nodo4)[color0] {$\bullet_4$};
+\draw [->] (nodo1) to [bend left =20](nodo2);
+\draw [->] (nodo1) to [bend right = 20](nodo3);
+\draw [->] (nodo2) to [bend left = 20] (nodo4);
+\draw [->] (nodo3) to [bend right = 20] (nodo4);
+
+%%Reutilcé el código anterior y renombre todos los nodos con el prefijo 2nodo :P
+\node at (7,2) (2nodo1)[color0] {$\bullet_1$};
+\node at (6,2) (2nodo3)[color0] {$\bullet_2$};
+\node at (8,2) (2nodo2)[color0] {$\bullet_3$};
+\node at (7,0) (2nodo4)[color0] {$\bullet_4$};
+\draw [->] (2nodo1) to (2nodo4);
+\draw [->] (2nodo2) to [bend left = 20] (2nodo4);
+\draw [->] (2nodo3) to [bend right = 20] (2nodo4);
+\end{tikzpicture}\smallskip
+%%Ejercicio 7
+\item
+\begin{enumerate}
+\item
+\item
+\item
+\item
+\end{enumerate}\smallskip
+%%Ejercicio 8
+\item
 \end{enumerate}
