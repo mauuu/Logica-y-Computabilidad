@@ -49,7 +49,6 @@ $\forall t( (x\leq t)\lor (y\leq t) \lor (w\leq t) \lor (z\leq t))$
 \draw [->] (nodo1) to [bend right = 20](nodo3);
 \draw [->] (nodo2) to [bend left = 20] (nodo4);
 \draw [->] (nodo3) to [bend right = 20] (nodo4);
-
 %%Reutilcé el código anterior y renombre todos los nodos con el prefijo 2nodo :P
 \node at (7,2) (2nodo1)[color0] {$\bullet_1$};
 \node at (6,2) (2nodo3)[color0] {$\bullet_2$};
@@ -69,4 +68,33 @@ $\forall t( (x\leq t)\lor (y\leq t) \lor (w\leq t) \lor (z\leq t))$
 \end{enumerate}\smallskip
 %%Ejercicio 8
 \item
+%%Ejercicio 9
+\newpage
+\begin{enumerate}
+\item Para probar que la fórmula es universalmente válida debo demostrar que su negación es una contradicción, esto lo probamos mediante el método de árboles, basta ver que es cerrado.\newline
+Negamos la fórmula : $\neg (\exists y P(y) \rightarrow \forall x \exists y P(y))$\newline\medskip
+\begin{center}
+\begin{tikzpicture}
+\node at (0,0.5) (dummy) {};%%Para dejar un renglón
+\node at (0,0) (formula1){$\neg (\exists y P(y) \rightarrow \forall x \exists y P(y))$};
+\node at (0,-1) (formula2) {$ \exists y P(y)$}; \node at (1,-1) (1) {$\bullet_1$};
+\node at (0,-2) (formula3) {$\neg \forall x \exists y P(y)$};
+\node at (0,-3) (formula4) {$\neg P(c)$};
+\node at (0,-4) (formula5) {$P(c)$};
+\node at (0,-4.5) (fin) {X};
+
+\draw [-] (formula1) to (formula2);
+\draw [-] (formula2) to (formula3);
+\draw [-] (formula3) to (formula4);
+\draw [-] (formula4) to (formula5);
+
+\draw [decorate,decoration=brace,thick]  (-2,-2.4) -- (-2,-0.6);
+\draw [decorate,decoration=brace,thick] (-2,-3.4) -- (-2,-2.6);
+\draw [decorate,decoration=brace,thick] (-2,-4.4) -- (-2,-3.6);
+\node at (-3,-1.4) (nodo1) {$R_{\neg \rightarrow}$};
+\node at (-3,-3) (nodo2) {$R_{\neg \forall}\ $};
+\node at (-3,-4) (nodo3) {de $\bullet_1$};
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
 \end{enumerate}
