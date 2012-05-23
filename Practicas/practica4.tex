@@ -287,7 +287,7 @@ $R_\leftrightarrow = (\alpha \rightarrow  \phi) \land (\phi \rightarrow \alpha) 
 $R_{\neg \leftrightarrow} = \neg(\alpha \rightarrow  \phi) \lor \neg(\phi \rightarrow \alpha) \ $
 \begin{center}
 \begin{tikzpicture}
-[level 1/.append style={sibling distance=7.5cm}]
+[level 1/.append style={sibling distance=7.5cm}]%%Separación entre las ramas de primer nivel
 \node (raiz) {$ \neg(\forall x \forall y (\phi (x,y)) \leftrightarrow  \forall y \forall x (\phi (x,y)))$} % root
 child { node (hijo1) {$\neg (\forall x \forall y (\phi (x,y)) \rightarrow  \forall y \forall x (\phi (x,y)))$}
 	child {node (nieto1){$\neg \neg\forall x \forall y (\phi (x,y))$}
@@ -332,6 +332,72 @@ child { node (hijo2) {$\neg (\forall y \forall x (\phi (x,y)) \rightarrow  \fora
 \node (nodo17) [node distance=2.4cm, left of = tnieto22] { de $\bullet_{10}\ R_{\neg \forall}$};
 \node (nodo18) [node distance=2.4cm, left of = tnieto23] { de $\bullet_{8}\ R_{\neg \neg}$};
 \node (nodo19) [node distance=2.4cm, left of = tnieto24] { de $\bullet_{12}\ R_{\forall}$};
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+%%Ejercicio 11
+\newpage
+\item
+\begin{enumerate}
+\item Debemos probar que $\Gamma \rightarrow \alpha$ es tautología, que es lo mismo que la negación es una contradicción, esto es: $\neg(\forall x \exists y \phi(x,y) \rightarrow \exists y \forall x \phi(x,y))$
+\begin{center}
+\begin{tikzpicture}
+\node (raiz) {$\neg(\forall x \exists y \phi(x,y) \rightarrow \exists y \forall x \phi(x,y))$}
+	child{ node (hijo) {$\neg \neg \forall x \exists y \phi(x,y)$}
+		child{ node (nieto) {$\neg \exists y \forall x \phi(x,y)$}
+			child{ node (bisnieto) {$\forall x \exists y \phi(x,y)$}
+				child{ node (tnieto1) {$\exists y \phi(t,y)$}
+					child{ node (tnieto2) [rectangle,fill=blue!20] {$\phi(t,c_1)$}
+						child{ node (tnieto3) {$\neg \exists y \phi(t,c_1)$}
+							child{ node (tnieto4) [rectangle,fill=blue!20] {$\neg\phi(t,c_1)$}}}}}}}};
+							
+\node (dummy) [above of = raiz] {};%%Para dejar un espacio vertical							
+\node (nodoR) [node distance=3cm,right of = raiz] {$\bullet_{raiz}$} ;
+\node (nodo1) [node distance=1.5cm,right of = hijo] {$\bullet_1$} ;
+\node (nodo3) [node distance=1.5cm, right of = nieto] {$\bullet_2$};
+\node (nodo4) [node distance=1.5cm, right of = bisnieto] {$\bullet_3$};
+\node (nodo5) [node distance=1.5cm, right of = tnieto1] {$\bullet_4$};
+\node (nodo6) [node distance=1.5cm, right of = tnieto3] {$\bullet_5$};
+\node (x) [below of = tnieto4] {X};
+
+\node [node distance=3cm,left of = hijo] {de $\bullet_{raiz}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = nieto] {de $\bullet_{raiz}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = bisnieto] {de $\bullet_{1}\ R_{\neg \neg }$} ;
+\node [node distance=3cm,left of = tnieto1] {de $\bullet_{3}\ R_{\forall}$} ;
+\node [node distance=3cm,left of = tnieto2] {de $\bullet_{4}\ R_{\exists}$} ;
+\node [node distance=3cm,left of = tnieto3] {de $\bullet_{2}\ R_{\forall}$} ;
+\node [node distance=3cm,left of = tnieto4] {de $\bullet_{5}\ R_{\neg \exists}$} ;
+\end{tikzpicture}
+\end{center}
+\newpage
+\item Procedemos de la misma manera que en el item (a):
+\begin{center}
+\begin{tikzpicture}
+\node (raiz) {$\neg(\exists x \exists y \phi(x,y) \rightarrow \exists y \exists x \phi(x,y))$}
+	child{ node (hijo) {$\neg \neg \exists x \exists y \phi(x,y)$}
+		child{ node (nieto) {$\neg \exists y \exists x \phi(x,y)$}
+			child{ node (bisnieto) {$\exists x \exists y \phi(x,y)$}
+				child{ node (tnieto1) {$\exists y \phi(c_1,y)$}
+					child{ node (tnieto2) [rectangle,fill=blue!20] {$\phi(c_1,c_2)$}
+						child{ node (tnieto3) {$\neg \exists y \phi(c_1,y)$}
+							child{ node (tnieto4) [rectangle,fill=blue!20] {$\neg\phi(c_1,c_2)$}}}}}}}};
+
+\node (dummy) [above of = raiz] {};%%Para dejar un espacio vertical							
+\node (nodoR) [node distance=3cm,right of = raiz] {$\bullet_{raiz}$} ;
+\node (nodo1) [node distance=1.5cm,right of = hijo] {$\bullet_1$} ;
+\node (nodo3) [node distance=1.5cm, right of = nieto] {$\bullet_2$};
+\node (nodo4) [node distance=1.5cm, right of = bisnieto] {$\bullet_3$};
+\node (nodo5) [node distance=1.5cm, right of = tnieto1] {$\bullet_4$};
+\node (nodo6) [node distance=1.5cm, right of = tnieto3] {$\bullet_5$};
+\node (x) [below of = tnieto4] {X};
+
+\node [node distance=3cm,left of = hijo] {de $\bullet_{raiz}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = nieto] {de $\bullet_{raiz}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = bisnieto] {de $\bullet_{1}\ R_{\neg \neg }$} ;
+\node [node distance=3cm,left of = tnieto1] {de $\bullet_{3}\ R_{\exists}$} ;
+\node [node distance=3cm,left of = tnieto2] {de $\bullet_{4}\ R_{\exists}$} ;
+\node [node distance=3cm,left of = tnieto3] {de $\bullet_{2}\ R_{\exists}$} ;
+\node [node distance=3cm,left of = tnieto4] {de $\bullet_{5}\ R_{\neg \exists}$} ;
 \end{tikzpicture}
 \end{center}
 \end{enumerate}
