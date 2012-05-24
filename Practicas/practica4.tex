@@ -246,7 +246,6 @@ Negamos la fórmula: $\neg(\exists y P(y) \rightarrow \exists y \exists x P(y))$ 
 \node at (7,6) (nodo3) {de $\bullet_1$};
 \end{tikzpicture}
 \end{center}\smallskip
-
 \item Misma idea, negamos la fórmula: $\neg(\forall x P(x) \rightarrow P(t))$\newline
 \begin{center}
 \begin{tikzpicture}
@@ -400,5 +399,91 @@ child { node (hijo2) {$\neg (\forall y \forall x (\phi (x,y)) \rightarrow  \fora
 \node [node distance=3cm,left of = tnieto4] {de $\bullet_{5}\ R_{\neg \exists}$} ;
 \end{tikzpicture}
 \end{center}
+\end{enumerate}
+\newpage
+%%Ejercicio 12
+\item
+\begin{enumerate}
+\item Usaremos la regla de expanción que usamos para $\leftrightarrow $, debemos probar que  $\alpha \leftrightarrow \beta$ es tautología que es lo mismo que probar que $\neg(\alpha \leftrightarrow \beta)$ es contradicción, procedemos: 
+\begin{center}
+\begin{tikzpicture}
+[level 1/.append style={sibling distance=7.5cm}]
+\node (raiz) {$\neg(\neg \forall x \phi(x) \leftrightarrow \exists x\neg \phi(x))$}
+	child{ node (hijoA) {$\neg(\neg \forall x \phi(x) \rightarrow  \exists x \neg \phi(x))$}
+		child{ node (nietoA) {$\neg \forall x \phi(x)$}
+			child{ node (bisnietoA) {$\neg \exists x \neg \phi(x)$}
+				child{ node (tnietoA1) [rectangle,fill=red!20]{$\neg \phi(c_1)$}
+						child{ node (tnietoA2) {$\neg \neg \phi(c_1)$}
+							child{ node (tnietoA3) [rectangle,fill=red!20] {$\phi(c_1)$}}}}}}}
+	child{ node (hijoB) {$\neg(\exists x \neg \phi(x) \rightarrow \neg \forall x \phi(x))$}
+		child{ node (nietoB) {$\exists x \neg \phi(x)$}
+			child{ node (bisnietoB) {$\neg \neg \forall x \phi(x)$}
+				child{ node (tnietoB1)[rectangle,fill=blue!20] {$\neg \phi(c_1)$}
+					child{ node (tnietoB2){$\forall x \phi(x)$}
+						child {node (tnietoB3) [rectangle,fill=blue!20] {$\phi (c_1)$}}}}}}};
+
+\node [node distance=3cm,right of = raiz] {$\bullet_{raiz}$} ;
+\node [node distance=2.5cm,right of = hijoA] {$\bullet_1$} ;
+\node [node distance=2.5cm,right of = hijoB] {$\bullet_2$} ;
+\node [node distance=1.5cm, right of = nietoA] {$\bullet_3$};
+\node [node distance=1.5cm, right of = bisnietoA] {$\bullet_4$};
+\node [node distance=1.5cm, right of = tnietoA2] {$\bullet_5$};
+\node [node distance=1.5cm, right of = tnietoA3] {$\bullet_6$};
+\node [node distance=1.5cm, right of = nietoB] {$\bullet_7$};
+\node [node distance=1.5cm, right of = bisnietoB] {$\bullet_8$};
+\node [node distance=1.5cm, right of = tnietoB2] {$\bullet_9$};
+\node [node distance=1.5cm, right of = tnietoB3] {$\bullet_{10}$};
+
+\node [node distance=3cm,left of = hijoA] {de $\bullet_{raiz}\ R_{\neg \leftrightarrow }$} ;
+\node [node distance=3cm,left of = nietoA] {de $\bullet_{1}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = bisnietoA] {de $\bullet_{1}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = tnietoA1] {de $\bullet_{3}\ R_{\neg \forall }$} ;
+\node [node distance=3cm,left of = tnietoA2] {de $\bullet_{4}\ R_{\neg \exists}$} ;
+\node [node distance=3cm,left of = tnietoA3] {de $\bullet_{5}\ R_{\neg \neg}$} ;
+\node [node distance=3cm,left of = hijoB] {de $\bullet_{raiz}\ R_{\neg \leftrightarrow }$} ;
+\node [node distance=3cm,left of = nietoB] {de $\bullet_{2}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = bisnietoB] {de $\bullet_{2}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = tnietoB1] {de $\bullet_{7}\ R_{\exists }$} ;
+\node [node distance=3cm,left of = tnietoB2] {de $\bullet_{8}\ R_{\neg \neg}$} ;
+\node [node distance=3cm,left of = tnietoB3] {de $\bullet_{9}\ R_{\neg \forall}$} ;
+\node (dummy) [above of = raiz] {};%%Para dejar un espacio vertical	
+\node (dummy) [below of = tnietoA3] {X};
+\node (dummy) [below of = tnietoB3] {X};
+\end{tikzpicture}
+\end{center}
+Concluimos que las fórmulas son equivalentes pues las dos ramas del árbol de refutación estan cerradas.
+\newpage
+\item Procedmos de la misma manera que en el item (a)
+\begin{center}
+\begin{tikzpicture}
+[level 1/.append style={sibling distance=7.5cm}]
+\node (raiz) {$\neg(\forall x \phi(x) \leftrightarrow \neg\exists x\neg \phi(x))$}
+	child{ node (hijoA) {$\neg(\forall x \phi(x) \rightarrow  \neg \exists x \neg \phi(x))$}
+		child{ node (nietoA) {$\neg \forall x \phi(x)$}
+			child{ node (bisnietoA) {$\neg \neg \exists x \neg \phi(x)$}
+				child{ node (tnietoA1) {$\exists x \neg \phi(x)$}
+					child{ node (tnietoA2) [rectangle,fill=red!20]{$ \neg \phi (c_1)$}
+						child{ node (tnietoA3) [rectangle,fill=blue!20]{$\neg\phi(c_1)$}}}}}}}
+	child{ node (hijoB) {$\neg(\neg \exists x \neg \phi(x) \rightarrow \forall x \phi(x))$}};
+
+\node [node distance=3cm,right of = raiz] {$\bullet_{raiz}$} ;
+\node [node distance=2.5cm,right of = hijoA] {$\bullet_1$} ;
+\node [node distance=2.5cm,right of = hijoB] {$\bullet_2$} ;
+\node [node distance=1.5cm, right of = nietoA] {$\bullet_3$};
+\node [node distance=1.5cm, right of = bisnietoA] {$\bullet_4$};
+\node [node distance=1.5cm, right of = tnietoA2] {$\bullet_5$};
+\node [node distance=1.5cm, right of = tnietoA3] {$\bullet_6$};
+
+\node [node distance=3cm,left of = hijoA] {de $\bullet_{raiz}\ R_{\neg \leftrightarrow }$} ;
+\node [node distance=3cm,left of = nietoA] {de $\bullet_{1}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = bisnietoA] {de $\bullet_{1}\ R_{\neg \rightarrow }$} ;
+\node [node distance=3cm,left of = tnietoA1] {de $\bullet_{4}\ R_{\neg \neg }$} ;
+\node [node distance=3cm,left of = tnietoA2] {de $\bullet_{5}\ R_{\exists}$} ;
+\node [node distance=3cm,left of = tnietoA3] {de $\bullet_{1}\ R_{\neg \forall}$} ;
+\node (dummy) [above of = raiz] {};%%Para dejar un espacio vertical	
+\node (dummy) [below of = tnietoA3] {};
+\end{tikzpicture}
+\end{center}
+Concluimos que como una rama ya queda abierta no podremos cerrar el árbol de refutación lo que nos indica que las fórmulas no son equivalentes.
 \end{enumerate}
 \end{enumerate}
