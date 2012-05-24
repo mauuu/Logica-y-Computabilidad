@@ -472,7 +472,6 @@ Concluimos que las fórmulas son equivalentes pues las dos ramas del árbol de ref
 \node [node distance=1.5cm, right of = nietoA] {$\bullet_3$};
 \node [node distance=1.5cm, right of = bisnietoA] {$\bullet_4$};
 \node [node distance=1.5cm, right of = tnietoA2] {$\bullet_5$};
-\node [node distance=1.5cm, right of = tnietoA3] {$\bullet_6$};
 
 \node [node distance=3cm,left of = hijoA] {de $\bullet_{raiz}\ R_{\neg \leftrightarrow }$} ;
 \node [node distance=3cm,left of = nietoA] {de $\bullet_{1}\ R_{\neg \rightarrow }$} ;
@@ -483,7 +482,36 @@ Concluimos que las fórmulas son equivalentes pues las dos ramas del árbol de ref
 \node (dummy) [above of = raiz] {};%%Para dejar un espacio vertical	
 \node (dummy) [below of = tnietoA3] {};
 \end{tikzpicture}
-\end{center}
+\end{center}\smallskip
 Concluimos que como una rama ya queda abierta no podremos cerrar el árbol de refutación lo que nos indica que las fórmulas no son equivalentes.
+\end{enumerate}
+\newpage
+%%Ejercicio 13
+\item
+\begin{enumerate}
+\item Debemos ver que la negación de dichas fórmulas sean contradicción para afirmar que son universalmente válidas
+\begin{center}
+\begin{tikzpicture}
+[level 1/.append style={sibling distance=7.5cm}]
+\begin{scope}[node distance=2mm]
+\node (raiz) {$\neg(\forall x \exists y \forall z \exists w (P(x,y) \lor \neg P((w,z))))$}
+	child{ node (hijo){$\neg \forall x \exists y P(x,y)$}
+		child{ node (nieto) {$\neg \forall z \exists w \neg P(w,z)$}
+			child{ node (bisnieto) [rectangle,fill=red!40,draw=red!60]{$P(c_1,c_2)$}
+				child{ node (tnieto) [rectangle,fill=orange!40,draw=orange!60]{$\neg P(c_3,c_4)$}}}}};
+\end{scope}
+\node [node distance=3.5cm,right of = raiz] {$\bullet_{raiz}$} ;
+\node [node distance=1.5cm,right of = hijo] {$\bullet_1$} ;
+\node [node distance=1.5cm, right of = nieto] {$\bullet_2$};
+\node [node distance=3cm,left of = hijo] {de $\bullet_{raiz}\ R_{\neg \lor }$} ;
+\node [node distance=3cm,left of = nieto] {de $\bullet_{raiz}\ R_{\neg \lor}$} ;
+\node [node distance=3cm,left of = bisnieto] {de $\bullet_{1}\ R_{\neg \forall}$ y $R_{\exists}$} ;
+\node [node distance=3cm,left of = tnieto] {de $\bullet_{2}\ R_{\neg \forall}$ y $R_{\exists}$} ;
+\node (dummy) [above of = raiz] {};%%Para dejar un espacio vertical
+\node (dummy) [below of = tnietoA2] {};			
+\node (anotacion)[annotation, below=1cm,fill=yellow!70,inner sep=2mm,draw=orange!50,align=center, outer sep=0pt,scale=1.1] at (tnieto){
+Finalmente llegamos a que la fórmula es universalmente válida sii $c_1=c_2 \land c_3 = c_4$};
+\end{tikzpicture}
+\end{center}
 \end{enumerate}
 \end{enumerate}
