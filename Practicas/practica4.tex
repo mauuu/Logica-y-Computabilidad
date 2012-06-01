@@ -497,8 +497,8 @@ Concluimos que como una rama ya queda abierta no podremos cerrar el árbol de ref
 \node (raiz) {$\neg(\forall x \exists y \forall z \exists w (P(x,y) \lor \neg P((w,z))))$}
 	child{ node (hijo){$\neg \forall x \exists y P(x,y)$}
 		child{ node (nieto) {$\neg \forall z \exists w \neg P(w,z)$}
-			child{ node (bisnieto) [rectangle,fill=red!40,draw=red!60]{$P(c_1,c_2)$}
-				child{ node (tnieto) [rectangle,fill=orange!40,draw=orange!60]{$\neg P(c_3,c_4)$}}}}};
+			child{ node (bisnieto) [rounded corners,fill=red!40,draw=red!60]{$P(c_1,c_2)$}
+				child{ node (tnieto) [rounded corners,fill=orange!40,draw=orange!60]{$\neg P(c_3,c_4)$}}}}};
 \end{scope}
 \node [node distance=3.5cm,right of = raiz] {$\bullet_{raiz}$} ;
 \node [node distance=1.5cm,right of = hijo] {$\bullet_1$} ;
